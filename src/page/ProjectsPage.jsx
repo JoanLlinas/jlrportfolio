@@ -1,57 +1,54 @@
-import Header from "../components/Header"
+import React, { useState, useEffect } from "react";
+import Header from "../components/Header";
 
-export default function ProjectsPage(){
-    return(
+export default function ProjectsPage() {
+    const [projects, setProjects] = useState([]);
+    const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        fetch("data/projects.json") // Reemplaza esto con la ruta a tu archivo JSON
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                setProjects(data);
+            })
+            .catch((error) => {
+                console.error("Ha sortit un error", error);
+            });
+    }, []);
+
+    const filteredProjects = projects.filter((project) =>
+        project.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+    return (
         <>
-            <Header page="projects"/>
+            <Header page="projects" />
 
             <section className="projectes" id="portfolio">
                 <h2>Projectes</h2>
+
+                <section className="busqueda">
+                    <input
+                        type="text"
+                        placeholder="Buscar por nombre de proyecto"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </section>
                 <div className="p-container">
-                    <article className="product">
-                        <div className="texte">
-                            <h3>Academy Of Hackers</h3>
-                            <p>Landing Page</p>
-                        </div>
-                        <img src="img\projecte1.png" alt=""/>
-                    </article>
-                    <article className="product">
-                        <div className="texte">
-                            <h3>Netflix</h3>
-                            <p>Landing Page</p>
-                        </div>
-                        <img src="img\projecte2.png" alt=""/>
-                    </article>
-                    <article className="product">
-                        <div className="texte">
-                            <h3>McAfee</h3>
-                            <p>Landing Page</p>
-                        </div>
-                        <img src="img\projecte3.png" alt=""/>
-                    </article>
-                    <article className="product">
-                        <div className="texte">
-                            <h3>ING</h3>
-                            <p>Newsletter</p>
-                        </div>
-                        <img src="img\projecte4.png" alt=""/>
-                    </article>
-                    <article className="product">
-                        <div className="texte">
-                            <h3>Ebay</h3>
-                            <p>Newsletter</p>
-                        </div>
-                        <img src="img\projecte5.png" alt=""/>
-                    </article>
-                    <article className="product">
-                        <div className="texte">
-                            <h3>Amazon</h3>
-                            <p>Newsletter</p>
-                        </div>
-                        <img src="img\projecte6.png" alt=""/>
-                    </article>
+                    {filteredProjects.map((project) => (
+                        <article key={project.id} className="product">
+                            <div className="texte">
+                                <h3>{project.name}</h3>
+                                <p>{project.type}</p>
+                            </div>
+                            <img src={`img/${project.image}`} alt={project.name} />
+                        </article>
+                    ))}
                 </div>
             </section>
         </>
-    )
+    );
 }

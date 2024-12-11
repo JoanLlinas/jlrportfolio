@@ -10,10 +10,6 @@
   font-family: var(--main-font);
 }
 
-.activate {
-  font-weight: bold;
-  color: red; /* O cualquier otro estilo visible */
-}
 
 body{
   background-color: var(--bg-color);
@@ -21,6 +17,26 @@ body{
   height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.activate {
+  font-weight: bold;
+  color: red; /* O cualquier otro estilo visible */
+}
+
+.busqueda input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 2px solid red; /* Borde rojo */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de letra */
+  outline: none; /* Elimina el borde azul al hacer clic */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  margin: auto;
+  margin-bottom: 2rem;
 }
 
 a{
@@ -51,7 +67,7 @@ color: #000;
 text-align: center;
 word-spacing: 20px;
 padding: 25px;
-margin: 0;
+margin: auto;
 }
 
 header h3{
@@ -100,6 +116,23 @@ h2 {
   padding: 10px 5% 0px 5%;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+th, td {
+  border: 3px solid red;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  color: white;
+  background-color: red;
+}
+tr{
+  background-color: #f9f9f9;
+}
 .text{
   width: 50%;
 }

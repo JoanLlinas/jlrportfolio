@@ -1,0 +1,38 @@
+[
+    {   
+        "id": 1,
+        "name": "Academy Of Hackers",
+        "type": "Landing Page",
+        "image": "projecte1.png"
+    },
+    {
+        "id": 2,
+        "name": "Netflix",
+        "type": "Landing Page",
+        "image": "projecte2.png"
+    },
+    {
+        "id": 3,
+        "name": "McAfee",
+        "type": "Landing Page",
+        "image": "projecte3.png"
+    },
+    {   
+        "id": 4,
+        "name": "ING",
+        "type": "Newsletter",
+        "image": "projecte4.png"
+    },
+    {
+        "id": 5,
+        "name": "Ebay",
+        "type": "Newsletter",
+        "image": "projecte5.png"
+    },
+    {
+        "id": 6,
+        "name": "Amazon",
+        "type": "Newsletter",
+        "image": "projecte6.png"
+    }
+]
